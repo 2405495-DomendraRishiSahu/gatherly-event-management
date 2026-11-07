@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Gatherly – Discover & Register for Events</title>
+<meta name="description" content="Explore upcoming events, view details and register in seconds.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@500;700;800&family=DM+Sans:wght@400;500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header class="nav">
+  <a href="#home" class="logo">Gatherly</a>
+  <nav id="menu" aria-label="Main">
+    <a href="#events">Events</a>
+    <a href="#register">Register</a>
+    <a href="#about">About</a>
+  </nav>
+  <div class="nav-actions">
+    <button id="themeBtn" class="icon-btn" aria-label="Toggle dark mode">🌙</button>
+    <button id="burger" class="icon-btn burger" aria-label="Open menu">☰</button>
+  </div>
+</header>
+
+<main id="home">
+  <section class="hero">
+    <div class="hero-text">
+      <h1>Find the event worth showing up for.</h1>
+      <p>Hackathons, concerts, workshops and more. Browse what's coming up, read the details and save your seat in under a minute.</p>
+      <div class="hero-cta">
+        <a href="#events" class="btn primary">Browse events</a>
+        <a href="#register" class="btn ghost">Register now</a>
+      </div>
+    </div>
+    <aside class="next-card" aria-live="polite">
+      <p class="muted">Next event starts in</p>
+      <h2 id="nextName">…</h2>
+      <div class="timer" id="timer"></div>
+    </aside>
+  </section>
+
+  <section id="events" class="section">
+    <div class="section-head">
+      <h2>Upcoming events</h2>
+      <input id="search" type="search" placeholder="Search by name, venue or keyword" aria-label="Search events">
+    </div>
+    <div id="chips" class="chips" role="group" aria-label="Filter by category"></div>
+    <div id="grid" class="grid"></div>
+    <p id="empty" class="empty" hidden>No events match your search. Try a different word or category.</p>
+  </section>
+
+  <section id="register" class="section reg">
+    <div class="reg-info">
+      <h2>Save your seat</h2>
+      <p>Fill in your details and pick an event. You'll see a confirmation right away.</p>
+      <h3>Your registrations</h3>
+      <ul id="myRegs" class="regs"></ul>
+    </div>
+    <form id="form" novalidate>
+      <label>Full name
+        <input id="name" type="text" autocomplete="name" placeholder="Asha Patel">
+        <small class="err" id="eName"></small>
+      </label>
+      <label>Email address
+        <input id="email" type="email" autocomplete="email" placeholder="asha@example.com">
+        <small class="err" id="eEmail"></small>
+      </label>
+      <label>Phone number
+        <input id="phone" type="tel" autocomplete="tel" placeholder="10-digit mobile number">
+        <small class="err" id="ePhone"></small>
+      </label>
+      <label>Event
+        <select id="eventSel"></select>
+        <small class="err" id="eEvent"></small>
+      </label>
+      <button class="btn primary" type="submit">Register</button>
+      <div id="ok" class="ok" role="status" hidden></div>
+    </form>
+  </section>
+
+  <section id="about" class="section about">
+    <h2>About Gatherly</h2>
+    <p>Gatherly is a simple event platform built with HTML, CSS and JavaScript. Explore events, filter by category, and register with validated forms. Your registrations are stored in your browser.</p>
+  </section>
+</main>
+
+<footer class="footer">© 2026 Gatherly · Built for K Explore – Web Designing</footer>
+
+<div id="modal" class="modal" hidden>
+  <div class="sheet" role="dialog" aria-modal="true" aria-labelledby="mTitle">
+    <button id="close" class="icon-btn close" aria-label="Close">✕</button>
+    <img id="mImg" alt="">
+    <div class="sheet-body">
+      <span id="mCat" class="tag"></span>
+      <h3 id="mTitle"></h3>
+      <ul class="meta" id="mMeta"></ul>
+      <p id="mDesc"></p>
+      <button id="mReg" class="btn primary">Register for this event</button>
+    </div>
+  </div>
+</div>
+<script src="script.js"></script>
+</body>
+</html>
